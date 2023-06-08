@@ -15,7 +15,16 @@ const Navber = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/signup">SignUp</Link>
+        <Link>Instructors</Link>
+      </li>
+      <li>
+        <Link to='/classes'>Classes</Link>
+      </li>
+      <li>
+        <Link>Dashboard</Link>
+      </li>
+      <li>
+        <Link>Register</Link>
       </li>
       <li>
         <Link>
@@ -51,7 +60,7 @@ const Navber = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52  "
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
             >
               {navItem}
             </ul>
