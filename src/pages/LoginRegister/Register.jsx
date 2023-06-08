@@ -2,11 +2,13 @@ import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-1.jpg'
 import { useContext } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Register = () => {
-  const {user, createUser} = useContext(authContext);
+  const {user, createUser, updateUserProfile} = useContext(authContext);
+  const navigate = useNavigate()
   
 
   const {
@@ -16,11 +18,13 @@ const Register = () => {
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
-    // console.log(data.email, data.password)
+    console.log(data)
     createUser(data.email, data.password)
     .then(result => {
       const logedUser = result.user;
       console.log(logedUser)
+      updateUserProfile(data.name, data.url)
+      navigate('/')
     })
     .catch(err => console.log(err.message))
 

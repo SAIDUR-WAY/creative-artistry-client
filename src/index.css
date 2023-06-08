@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.showName{
+     position:absolute;
+     right: 160px;
+     width: 200px;
+     top: 24px;
+     text-align: right;
+}

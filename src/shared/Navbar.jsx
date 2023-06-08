@@ -1,13 +1,15 @@
+import { useContext, useState } from 'react';
 import { FaCartArrowDown } from 'react-icons/fa';
 import { Link } from "react-router-dom"
+import { authContext } from '../Provider/AuthProvider';
 
 const handleLogOut = ()=>{
 
 }
 
 const Navber = () => {
-     const user = 'Saidur';
-     const userName = 'saidur'
+  const [name, setName]= useState(true)   
+  const {user} = useContext(authContext);
 
   const navItem = (
     <>
@@ -27,7 +29,7 @@ const Navber = () => {
         <Link to='/register'>Register</Link>
       </li>
       {
-        user || 
+         
         <button className='btn btn-primary' ><Link className=' text-decoration-none text-white' to='/login'>Login</Link></button>
       }
       <li>
@@ -77,9 +79,9 @@ const Navber = () => {
         <div className="navbar-end">
         {
               user &&
-              <> <span className={userName? 'showInSite': 'd-none'}><span>{user?.displayName}</span></span>
-              <div onMouseEnter={()=>setUserName(true)}
-                  onMouseLeave={()=>setUserName(false)}
+              <> <span className={name? 'showName': 'hidden'}><span>{user?.displayName}</span></span>
+              <div onMouseEnter={()=>setName(true)}
+                  onMouseLeave={()=>setName(false)}
                 className='d-inline'><img className=' rounded-circle '  style={{width: '40px', height: '40px'}} src={user && user.photoURL} alt="" /></div>
               <button className='btn  bg-transparent btn-sm mx-2'><Link className='text-white text-decoration-none'>LogOut</Link></button>
 
