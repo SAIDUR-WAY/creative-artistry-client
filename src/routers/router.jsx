@@ -7,6 +7,7 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Classes from "../pages/Classes/Classes";
+import Instructors from "../pages/Instructors/Instructors";
 
    const router = createBrowserRouter([
      {
@@ -21,6 +22,10 @@ import Classes from "../pages/Classes/Classes";
           {
             path: '/classes',
             element: <Classes></Classes>
+          },
+          {
+            path: 'instructors',
+            element: <Instructors></Instructors>
           }
        ]
      },

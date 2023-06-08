@@ -15,7 +15,7 @@ const Navber = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link>Instructors</Link>
+        <Link to='instructors'>Instructors</Link>
       </li>
       <li>
         <Link to='/classes'>Classes</Link>
@@ -29,7 +29,7 @@ const Navber = () => {
       <li>
         <Link>
         <button className="btn btn-outline-none bg-transparent border-none ">
-        <FaCartArrowDown className='text-2xl'></FaCartArrowDown>
+        <FaCartArrowDown className='text-2xl md:text-white'></FaCartArrowDown>
           <div className="badge badge-secondary">+{'10'}</div>
         </button>
         </Link>
@@ -60,7 +60,7 @@ const Navber = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black "
             >
               {navItem}
             </ul>
