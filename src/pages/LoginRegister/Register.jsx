@@ -1,12 +1,15 @@
 import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-1.jpg'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 
 
 const Register = () => {
+  const [show, setShow] = useState(false)
+  const [error, setError] = useState('')
   const { createUser, updateUserProfile } = useContext(authContext);
   const navigate = useNavigate()
   
@@ -28,7 +31,9 @@ const Register = () => {
       .catch(err => console.log(err.message))
       navigate('/')
     })
-    .catch(err => console.log(err.message))
+    .catch(err => {
+      setError(err.message)
+    })
 
   }
 
@@ -45,6 +50,9 @@ const Register = () => {
           </div>
           <div className="card flex-shrink-0 md:w-1/2  shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
+            {error  && (
+                  <p className="text-red-600">{error}</p>
+                )}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -69,12 +77,13 @@ const Register = () => {
                 {errors.email?.type === 'required' && <p role="alert" className="text-red-500">Email is required</p>}
               </div>
 
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? 'text': 'password'}
+                  
                   {...register('password', {
                     required: true,
                     minLength: 8,
@@ -82,8 +91,15 @@ const Register = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
                   })}
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-bordered "
                 />
+                {
+                  show ? 
+                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  :
+                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                }
+                
                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 8 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
@@ -94,7 +110,7 @@ const Register = () => {
                   <span className="label-text">Confirm</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? 'text': 'password'}
                   {...register(
                     'confirm',
                     { required: true ,

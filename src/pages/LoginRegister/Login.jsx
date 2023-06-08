@@ -2,27 +2,33 @@ import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-3.jpg'
 
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 const Login = () => {
+  const [show, setShow] = useState(false)
+  const [error, setError] = useState('')
      const {signIn} = useContext(authContext);
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
+    setError('')
     signIn(data.email, data.password)
     .then(result => {
       const logedUser = result.user;
       console.log(logedUser)
     })
-    .catch(err => err.message)
+    .catch(err => {
+      console.log(err.message)
+      setError(err.message)
+    })
   }
 
-  //    const password = watch('password'); // Get the value of the password field
+    //  const password = watch('password'); // Get the value of the password field
 
   return (
     <div className="pt-20">
@@ -40,6 +46,9 @@ const Login = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="card-body w-full"
             >
+                              {error  && (
+                  <p className="text-red-600">{error}</p>
+                )}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -57,21 +66,29 @@ const Login = () => {
                 )}
               </div>
 
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? 'text': 'password'}
                   {...register('password', {
                     required: true,
                   })}
+
                   placeholder="password"
                   className="input input-bordered"
                 />
+                {
+                  show ? 
+                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  :
+                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                }
                 {errors.password?.type === 'required' && (
                   <p className="text-red-600">Password is required</p>
                 )}
+
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Login</button>
