@@ -6,7 +6,7 @@ const handleLogOut = ()=>{
 }
 
 const Navber = () => {
-     const user = 'Saidur rahman';
+     const user = 'Saidur';
      const userName = 'saidur'
 
   const navItem = (
@@ -24,8 +24,12 @@ const Navber = () => {
         <Link>Dashboard</Link>
       </li>
       <li>
-        <Link>Register</Link>
+        <Link to='/register'>Register</Link>
       </li>
+      {
+        user || 
+        <button className='btn btn-primary' ><Link className=' text-decoration-none text-white' to='/login'>Login</Link></button>
+      }
       <li>
         <Link>
         <button className="btn btn-outline-none bg-transparent border-none ">
@@ -72,16 +76,16 @@ const Navber = () => {
         </div>
         <div className="navbar-end">
         {
-              user ?
+              user &&
               <> <span className={userName? 'showInSite': 'd-none'}><span>{user?.displayName}</span></span>
               <div onMouseEnter={()=>setUserName(true)}
                   onMouseLeave={()=>setUserName(false)}
                 className='d-inline'><img className=' rounded-circle '  style={{width: '40px', height: '40px'}} src={user && user.photoURL} alt="" /></div>
-              <button className='mx-2'><Link className='text-white text-decoration-none'>LogOut</Link></button>
+              <button className='btn  bg-transparent btn-sm mx-2'><Link className='text-white text-decoration-none'>LogOut</Link></button>
 
                </> 
-               : 
-               <button ><Link className=' text-decoration-none text-white' to='/login'>Login</Link></button>
+               
+
             }
         </div>
       </div>
