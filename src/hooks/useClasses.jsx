@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const useClasses = () => {
      const [classe, setClasse] = useState([])
+     console.log(classe)
      const [loading, setLoading] = useState(true)
      useEffect(()=>{
           fetch('classes.json')

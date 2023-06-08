@@ -2,12 +2,12 @@ import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-1.jpg'
 import { useContext } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
 const Register = () => {
-  const {user, createUser, updateUserProfile} = useContext(authContext);
+  const { createUser, updateUserProfile } = useContext(authContext);
   const navigate = useNavigate()
   
 
@@ -24,6 +24,8 @@ const Register = () => {
       const logedUser = result.user;
       console.log(logedUser)
       updateUserProfile(data.name, data.url)
+      .then(()=>{})
+      .catch(err => console.log(err.message))
       navigate('/')
     })
     .catch(err => console.log(err.message))
@@ -38,7 +40,7 @@ const Register = () => {
       <div className="hero w-full min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left w-1/4 md:w-full relative ">
-            <h1 className="text-5xl font-semibold  text-center md:absolute left-36 ">Please Login</h1>
+            <h1 className="text-5xl font-semibold  text-center md:absolute left-36 ">Please Register</h1>
             <img src={registerImg} alt="" />
           </div>
           <div className="card flex-shrink-0 md:w-1/2  shadow-2xl bg-base-100">
@@ -124,9 +126,10 @@ const Register = () => {
                 {errors.url?.type === 'required' && <p role="alert" className="text-red-500">Email is required</p>}
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">SignUp</button>
               </div>
             </form>
+            <p className='pl-4 pb-4'><small>Alrady Have an account? <Link to= '/login' className='text-blue-500 underline'>Please Login</Link></small></p>
           </div>
         </div>
       </div>

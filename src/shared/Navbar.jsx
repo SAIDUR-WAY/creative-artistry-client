@@ -3,13 +3,18 @@ import { FaCartArrowDown } from 'react-icons/fa';
 import { Link } from "react-router-dom"
 import { authContext } from '../Provider/AuthProvider';
 
-const handleLogOut = ()=>{
 
-}
 
 const Navber = () => {
-  const [name, setName]= useState(true)   
-  const {user} = useContext(authContext);
+  const [name, setName]= useState(false)   
+  const {user, logOut} = useContext(authContext);
+  // console.log(user)
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.message))
+  }
 
   const navItem = (
     <>
@@ -17,7 +22,7 @@ const Navber = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to='instructors'>Instructors</Link>
+        <Link to='/instructors'>Instructors</Link>
       </li>
       <li>
         <Link to='/classes'>Classes</Link>
@@ -29,8 +34,8 @@ const Navber = () => {
         <Link to='/register'>Register</Link>
       </li>
       {
-         
-        <button className='btn btn-primary' ><Link className=' text-decoration-none text-white' to='/login'>Login</Link></button>
+         !user &&
+         <button className='btn  bg-transparent btn-sm mx-2'><Link to='/login' className='text-white text-decoration-none'>SignIn</Link></button>
       }
       <li>
         <Link>
@@ -74,7 +79,9 @@ const Navber = () => {
           <a className="btn btn-ghost normal-case text-xl">Creative Artistry</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal items-center px-1 space-x-4">{navItem}</ul>
+          <ul className="menu menu-horizontal items-center px-1 space-x-4">
+            {navItem}
+            </ul>
         </div>
         <div className="navbar-end">
         {
@@ -83,7 +90,7 @@ const Navber = () => {
               <div onMouseEnter={()=>setName(true)}
                   onMouseLeave={()=>setName(false)}
                 className='d-inline'><img className=' rounded-circle '  style={{width: '40px', height: '40px'}} src={user && user.photoURL} alt="" /></div>
-              <button className='btn  bg-transparent btn-sm mx-2'><Link className='text-white text-decoration-none'>LogOut</Link></button>
+              <button onClick={handleLogOut} className='btn  bg-transparent btn-sm mx-2'><Link className='text-white text-decoration-none'>LogOut</Link></button>
 
                </> 
                

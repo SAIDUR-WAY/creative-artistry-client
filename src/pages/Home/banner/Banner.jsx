@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import bannerImg1 from '../../../assets/banner/banner-1.webp'
 import bannerImg2 from '../../../assets/banner/banner-2.png'
 import bannerImg3 from '../../../assets/banner/Banner-3.jpg'
+
 import '../banner/banner.css'
 
 const Banner = () => {
