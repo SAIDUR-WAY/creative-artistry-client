@@ -1,13 +1,30 @@
 import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-1.jpg'
+import { useContext } from 'react'
+import { authContext } from '../../Provider/AuthProvider'
+
+
+
 const Register = () => {
+  const {user, createUser} = useContext(authContext);
+  
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    // console.log(data.email, data.password)
+    createUser(data.email, data.password)
+    .then(result => {
+      const logedUser = result.user;
+      console.log(logedUser)
+    })
+    .catch(err => console.log(err.message))
+
+  }
 
   const password = watch('password'); // Get the value of the password field
   return (
