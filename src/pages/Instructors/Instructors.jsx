@@ -1,10 +1,11 @@
+
 import InstractorCard from '../../conponent/InstractorCard';
 import useInstract from '../../hooks/useInstract';
 import './instructors.css'
 
 const Instructors = () => {
   const [instraData] = useInstract()
-  console.log(instraData)
+
      return (
           <div className="py-20">
                         <div className="text-center">

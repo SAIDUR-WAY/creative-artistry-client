@@ -22,3 +22,7 @@
      border-radius: 10px;
      color: white;
 }
+.posiButton {
+     bottom: -22px;
+     right: -20px;
+}

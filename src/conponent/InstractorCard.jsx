@@ -3,7 +3,7 @@
 const InstractorCard = ({data}) => {
      return (
           <div>
-                         <div className=" bg-gray-400 antialiased text-gray-900">
+                         <div className=" p-10 rounded-xl bg-gray-400 antialiased text-gray-900">
 <div>
     
     <img src={data.image} alt=" random imgee" className="w-full object-cover object-center rounded-lg shadow-md"  style={{ height: '300px' }}/>    
@@ -24,7 +24,7 @@ const InstractorCard = ({data}) => {
     <span className="text-teal-600 text-md font-semibold underline">Email</span>
     <h4 className="text-sm font-semibold text-gray-600">{data.email}</h4>
   </div>
-  <button className="btn glass absolute bottom-0 right-0">See Classes</button> 
+  <button className="btn glass absolute bottom-0 right-0 posiButton ">See Classes</button> 
   </div>
  </div>
   

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import registerImg from '../../assets/imgList/register-3.jpg'
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
@@ -10,6 +10,12 @@ const Login = () => {
   const [show, setShow] = useState(false)
   const [error, setError] = useState('')
      const {signIn} = useContext(authContext);
+     const navigate = useNavigate()
+     const location =useLocation()
+     const from = location?.state?.from?.pathname || '/';
+     
+     
+
   const {
     register,
     handleSubmit,
@@ -21,6 +27,7 @@ const Login = () => {
     .then(result => {
       const logedUser = result.user;
       console.log(logedUser)
+      navigate(from, {replace: true})
     })
     .catch(err => {
       console.log(err.message)

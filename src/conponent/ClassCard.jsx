@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import { authContext } from "../Provider/AuthProvider";
 
 const ClassCard = ({clas}) => {
+  const {user} = useContext(authContext);
   const {image, name, instructorName, availableSeats, price, description} = clas || [];
      return (
 
@@ -25,7 +28,7 @@ const ClassCard = ({clas}) => {
         </div>
         
         <p>{description}</p>
-       <button className='btn btn-primary ' > Select Button</button>
+       <button className={`btn btn-primary ${ availableSeats === 0 ? 'btn-disabled opacity-50' : ''}`}> Select Button</button>
       </div>
     
          </div>
