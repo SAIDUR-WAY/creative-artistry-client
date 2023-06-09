@@ -1,6 +1,7 @@
-// import bgImg from '../../assets/banner/istockphoto-494678785-612x612.jpg'
 
-import ClassCard from '../../conponent/classCard';
+
+
+import ClassCard from '../../component/ClassCard';
 import useClasses from '../../hooks/useClasses'
 const Classes = () => {
   const [classe] = useClasses();

@@ -5,7 +5,7 @@ const useInstract = () => {
      
      const [loading, setLoading] = useState(true)
      useEffect(()=>{
-          fetch('instructors.json')
+          fetch('http://localhost:5000/instractors')
           .then(res => res.json())
           .then(data => {
                setInstraData(data)

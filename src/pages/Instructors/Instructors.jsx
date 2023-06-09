@@ -1,5 +1,5 @@
 
-import InstractorCard from '../../conponent/InstractorCard';
+import InstractorCard from '../../component/InstractorCard';
 import useInstract from '../../hooks/useInstract';
 import './instructors.css'
 

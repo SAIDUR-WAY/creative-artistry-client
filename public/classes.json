@@ -1,6 +1,5 @@
 [
   {
-    "_id": "1",
     "image": "https://i.ibb.co/tQQHbm3/drowpancil.jpg",
     "name": "Realistic Pencil Drawings",
     "instructorName": "John Smith",
@@ -9,7 +8,6 @@
     "description": "This class is designed for beginners who want to learn the basics of art. You will explore various techniques and mediums to develop your artistic skills."
   },
   {
-    "_id": "2",
     "image": "https://i.ibb.co/7vfWL97/pencil.jpg",
     "name": "The Colored Pencil Course",
     "instructorName": "Emily Johnson",
@@ -18,7 +16,6 @@
     "description": "In this class, you will learn the fundamentals of figure drawing. Through a series of exercises and projects, you will improve your ability to accurately depict the human form."
   },
   {
-    "_id": "3",
     "image": "https://i.ibb.co/KNGXDFD/water-Color.jpg",
     "name": "The Pen & Ink Experience",
     "instructorName": "Sarah Davis",
