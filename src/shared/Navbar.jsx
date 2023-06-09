@@ -31,7 +31,7 @@ const Navber = () => {
         <Link>Dashboard</Link>
       </li>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link className='hover:text-white' to='/register'>Register</Link>
       </li>
       {
          !user &&
@@ -79,7 +79,7 @@ const Navber = () => {
           <a className="btn btn-ghost normal-case text-xl">Creative Artistry</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal items-center px-1 space-x-4">
+          <ul className="menu menu-horizontal customMenu items-center px-1 space-x-4">
             {navItem}
             </ul>
         </div>

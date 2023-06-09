@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+     box-sizing: border-box;
+}
 
 .showName{
      position:absolute;
@@ -13,3 +16,9 @@
      background-image: url(./assets/imgList/register-3.jpg);
      background-size: cover;
 } */
+
+.customMenu li:hover {
+     background-color:#6D6E74;
+     border-radius: 10px;
+     color: white;
+}

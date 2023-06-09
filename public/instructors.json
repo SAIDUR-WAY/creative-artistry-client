@@ -1,0 +1,21 @@
+[
+     {
+       "_id": 1,
+       "name": "Stefanie Jackson",
+       "image": "https://i.ibb.co/3mQjKdW/Stefanie-Jackson.jpg",
+       "email": "johnsmith@example.com"
+     },
+     {
+      "_id": 2,
+       "name": "Liza Lime",
+       "image": "https://i.ibb.co/ZVn6kgh/liza-lime.jpg",
+       "email": "emilyjohnson@example.com"
+     },
+     {
+      "_id": 3,
+       "name": "Madison White",
+       "image": "https://i.ibb.co/60yzmBG/Madison-White.jpg",
+       "email": "sarahdavis@example.com"
+     }
+   ]
+   
