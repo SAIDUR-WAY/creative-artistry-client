@@ -20,7 +20,7 @@ const Classes = () => {
               saepe?
             </p>
           </div>
-          <div className='grid md:grid-cols-3'>
+          <div className='grid md:grid-cols-3 gap-4'>
           {
                                 classe?.map(clas => <ClassCard
                                   key={clas._id}

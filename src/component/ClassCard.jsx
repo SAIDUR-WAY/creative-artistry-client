@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { authContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useMyClasses from "../hooks/useMyClasses";
 
 const ClassCard = ({clas}) => {
   const {user} = useContext(authContext);
   const navigate = useNavigate()
   const location = useLocation()
+  const [, refetch] = useMyClasses();
   const { _id,image, name, instructorName, availableSeats, price, description} = clas || [];
-  console.log(_id)
 
     const handleAddToClass = item =>{
 
@@ -24,7 +25,7 @@ const ClassCard = ({clas}) => {
         .then(res => res.json())
         .then(data => {
           if(data.insertedId){
-
+            refetch()
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -52,7 +53,7 @@ const ClassCard = ({clas}) => {
     }
 
      return (
-         <div className='border w-96 border-base-300 '>
+         <div className={`border w-96 rounded-xl border-base-300 ${availableSeats === 0 && 'bg-red-700'}`}>
          <div className="card w-96 bg-base-100 shadow-xl image-full">
       <figure><img src={image} alt="image"  style={{ height: '300px' }}/></figure>
       <div className="card-body">

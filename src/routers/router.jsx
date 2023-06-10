@@ -11,6 +11,8 @@ import Instructors from "../pages/Instructors/Instructors";
 import Login from "../pages/LoginRegister/Login";
 import Register from "../pages/LoginRegister/Register";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
+import Dashboard from "../layout/Dashboard";
+import MyClasses from "../pages/Dashboard/MyClasses";
 
    const router = createBrowserRouter([
      {
@@ -40,5 +42,15 @@ import PrivateRoute from "../PrivateRoutes/PrivateRoute";
           }
        ]
      },
+     {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children:[
+        {
+          path: 'myclasses',
+          element: <MyClasses></MyClasses>
+        }
+      ]
+     }
    ]);
    export default router;
