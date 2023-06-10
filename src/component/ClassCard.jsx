@@ -11,7 +11,7 @@ const ClassCard = ({clas}) => {
   const [, refetch] = useMyClasses();
   const { _id,image, name, instructorName, availableSeats, price, description} = clas || [];
 
-    const handleAddToClass = item =>{
+    const handleAddToClass = () =>{
 
       if(user && user.email){
         const addedClass = {image, name, instructorName, availableSeats, price, description, classId: _id, email: user.email}
@@ -24,6 +24,18 @@ const ClassCard = ({clas}) => {
         })
         .then(res => res.json())
         .then(data => {
+          if(data.message){
+            Swal.fire({
+              title: 'This Class All Ready Selected!',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+          }
+          
           if(data.insertedId){
             refetch()
             Swal.fire({
