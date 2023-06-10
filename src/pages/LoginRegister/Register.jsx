@@ -4,6 +4,8 @@ import { useContext, useState } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import Swal from 'sweetalert2'
+import SocialLogin from '../../component/SocialLogin'
 
 
 
@@ -26,8 +28,32 @@ const Register = () => {
     .then(result => {
       const logedUser = result.user;
       console.log(logedUser)
+
       updateUserProfile(data.name, data.url)
-      .then(()=>{})
+      .then(()=>{
+        const saveUser = {name: data.name, email: data.email, role: 'student'}
+        fetch('http://localhost:5000/users', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveUser)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.insertedId){
+            console.log(data)
+          }
+        })
+
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'User Created successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
       .catch(err => console.log(err.message))
       navigate('/')
     })
@@ -145,6 +171,7 @@ const Register = () => {
                 <button className="btn btn-primary">SignUp</button>
               </div>
             </form>
+            <SocialLogin></SocialLogin>
             <p className='pl-4 pb-4'><small>Alrady Have an account? <Link to= '/login' className='text-blue-500 underline'>Please Login</Link></small></p>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { authContext } from '../../Provider/AuthProvider'
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import SocialLogin from '../../component/SocialLogin'
 
 const Login = () => {
   const [show, setShow] = useState(false)
@@ -101,6 +102,7 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            <SocialLogin></SocialLogin>
             <p className='pl-4 pb-4'><small>New Here? <Link to= '/register' className='text-blue-500 underline'>Create a account</Link></small></p>
           </div>
         </div>
