@@ -1,0 +1,39 @@
+
+
+const TableCard = ({data, index, handleDelete}) => {
+     const {name, image, instructorName, availableSeats, price, _id} = data;
+     return (
+          <tr>
+          <th>
+            {index +1}
+          </th>
+          <td>
+            <div className="flex items-center space-x-3">
+              <div className="avatar">
+                <div className="mask mask-square w-12 h-12">
+                  <img src={image}alt="image" />
+                </div>
+              </div>
+              <div>
+                <div className="font-bold">{name}</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span className="badge badge-ghost badge-sm">{instructorName}</span>
+          </td>
+          <td>{availableSeats}</td>
+          <th>
+            <button className="btn btn-ghost btn-xs">{price}</button>
+          </th>
+          <th>
+            <button onClick={()=>handleDelete(_id)} className="btn bg-red-500  btn-xs">Delete</button>
+          </th>
+          <th>
+            <button className="btn btn-ghost bg-pink-400 btn-xs">Pay</button>
+          </th>
+        </tr>
+     );
+};
+
+export default TableCard;

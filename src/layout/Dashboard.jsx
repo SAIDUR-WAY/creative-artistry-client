@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import { BiWalletAlt } from 'react-icons/bi'
 import { FaChalkboardTeacher, FaHome, FaLeanpub, FaListOl, FaRegChartBar } from 'react-icons/fa'
 
@@ -7,7 +7,8 @@ const Dashboard = () => {
     <>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <div className="drawer-content flex flex-col items-center
+        m-10 min-h-fit ">
           <Outlet></Outlet>
 
           <label
@@ -22,39 +23,39 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <Link to="/dashboard/userhome">
+              <NavLink to="/dashboard/userhome">
                 <FaHome /> User Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/dashboard/paymenthistory">
+              <NavLink to="/dashboard/paymenthistory">
                 <BiWalletAlt /> Payment History
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/dashboard/myclasses">
+              <NavLink to="/dashboard/myclasses">
                 <FaListOl /> My Classes
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/dashboard/enrolled">
+              <NavLink to="/dashboard/enrolled">
                 <FaRegChartBar /> My Enrolled
-              </Link>
+              </NavLink>
             </li>
 
             <div className="divider"></div>
             
             <li>
-              <Link>
+              <NavLink to='/'>
                 <FaHome />
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/classes"><FaLeanpub/> Classes</Link>
+              <NavLink to="/classes"><FaLeanpub/> Classes</NavLink>
             </li>
             <li>
-              <Link to="/instructors"><FaChalkboardTeacher/> Instructors</Link>
+              <NavLink to="/instructors"><FaChalkboardTeacher/> Instructors</NavLink>
             </li>
           </ul>
         </div>
