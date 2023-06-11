@@ -42,14 +42,7 @@ const Navber = () => {
          !user &&
          <button className='btn  bg-transparent btn-sm mx-2'><Link to='/login' className='text-white text-decoration-none'>SignIn</Link></button>
       }
-      <li>
-        <Link>
-        <button className="btn btn-outline-none bg-transparent border-none ">
-        <FaCartArrowDown className='text-2xl md:text-white'></FaCartArrowDown>
-          <div className="badge badge-secondary">+{myclasses.length}</div>
-        </button>
-        </Link>
-      </li>
+     
     </>
   )
 
