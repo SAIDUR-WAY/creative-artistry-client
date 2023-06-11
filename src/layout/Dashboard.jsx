@@ -1,8 +1,11 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { BiWalletAlt } from 'react-icons/bi'
-import { FaChalkboardTeacher, FaHome, FaLeanpub, FaListOl, FaRegChartBar } from 'react-icons/fa'
+import { FaChalkboardTeacher, FaFolderPlus, FaHome, FaLeanpub, FaListOl, FaMizuni, FaRegChartBar, FaUsers } from 'react-icons/fa'
 
 const Dashboard = () => {
+  //TODO: user deshboard menu view in work
+  const isAdmin = true;
+  const isInstructor = false;
   return (
     <>
       <div className="drawer lg:drawer-open">
@@ -22,7 +25,42 @@ const Dashboard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
+            {
+              isAdmin ? <>
+                            <li>
+              <NavLink to="/dashboard/adminhome">
+                <FaHome /> Admin Home
+              </NavLink>
+            </li>
             <li>
+              <NavLink to="/dashboard/manageclasses">
+                <FaMizuni /> Manage Classes
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/manageusers">
+                <FaUsers /> Manage Users
+              </NavLink>
+            </li>
+
+              </> : (isInstructor ? <>
+              <li>
+                <NavLink to="/dashboard/instructor">
+                <FaHome /> Instructor Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/manageclasses">
+                <FaFolderPlus /> Add a Class
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/instclasses">
+                <FaListOl /> My Classes
+              </NavLink>
+            </li>
+              </> :  <>
+              <li>
               <NavLink to="/dashboard/userhome">
                 <FaHome /> User Home
               </NavLink>
@@ -42,6 +80,10 @@ const Dashboard = () => {
                 <FaRegChartBar /> My Enrolled
               </NavLink>
             </li>
+              
+              </>)
+            }
+            
 
             <div className="divider"></div>
             

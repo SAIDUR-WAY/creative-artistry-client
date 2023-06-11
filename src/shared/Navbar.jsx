@@ -29,9 +29,12 @@ const Navber = () => {
       <li>
         <Link to='/classes'>Classes</Link>
       </li>
+     {
+      user && 
       <li>
-        <Link to='/dashboard/myclasses'>Dashboard</Link>
-      </li>
+      <Link to='/dashboard'>Dashboard</Link>
+    </li>
+     }
       <li>
         <Link className='hover:text-white' to='/register'>Register</Link>
       </li>
