@@ -1,11 +1,20 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { BiWalletAlt } from 'react-icons/bi'
 import { FaChalkboardTeacher, FaFolderPlus, FaHome, FaLeanpub, FaListOl, FaMizuni, FaRegChartBar, FaUsers } from 'react-icons/fa'
+import useAdmin from '../hooks/useAdmin'
+import useInstructor from '../hooks/useInstructor'
 
 const Dashboard = () => {
   //TODO: user deshboard menu view in work
-  const isAdmin = true;
-  const isInstructor = false;
+  // const isAdmin = true;
+  
+  const [isAdmin] = useAdmin();
+  // const [isInstructor]= useInstructor();
+  console.log(isAdmin);
+  // console.log(isInstructor)
+  
+ 
+  
   return (
     <>
       <div className="drawer lg:drawer-open">
@@ -26,7 +35,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             {
-              isAdmin ? <>
+              isAdmin == 'admin' ? <>
                             <li>
               <NavLink to="/dashboard/adminhome">
                 <FaHome /> Admin Home
@@ -43,7 +52,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
 
-              </> : (isInstructor ? <>
+              </> : ( isAdmin == 'instructor' ? <>
               <li>
                 <NavLink to="/dashboard/instructor">
                 <FaHome /> Instructor Home
