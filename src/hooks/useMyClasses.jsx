@@ -6,8 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const useMyClasses = () => {
      const {user, loading} = useContext(authContext);
-          // console.log(user)
      const token = localStorage.getItem('creative-token')
+
      // const [axiosSecure] = useAxiosSecure();
      const { refetch, data: myclasses = [] } = useQuery({
           queryKey: ['myclasses', user?.email],

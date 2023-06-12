@@ -9,12 +9,7 @@ const Dashboard = () => {
   // const isAdmin = true;
   
   const [isAdmin] = useAdmin();
-  // const [isInstructor]= useInstructor();
-  console.log(isAdmin);
-  // console.log(isInstructor)
-  
- 
-  
+
   return (
     <>
       <div className="drawer lg:drawer-open">
@@ -54,7 +49,7 @@ const Dashboard = () => {
 
               </> : ( isAdmin == 'instructor' ? <>
               <li>
-                <NavLink to="/dashboard/instructor">
+                <NavLink to="/dashboard/instructorHome">
                 <FaHome /> Instructor Home
               </NavLink>
             </li>

@@ -1,7 +1,8 @@
 
 
 const TableCard = ({data, index, handleDelete}) => {
-     const {name, image, instructorName, availableSeats, price, _id} = data;
+     const {name, imageUrl, instructorName, availibleSeats , price, _id} = data;
+     console.log(data)
      return (
           <tr>
           <th>
@@ -11,7 +12,7 @@ const TableCard = ({data, index, handleDelete}) => {
             <div className="flex items-center space-x-3">
               <div className="avatar">
                 <div className="mask mask-square w-12 h-12">
-                  <img src={image}alt="image" />
+                  <img src={imageUrl}alt="image" />
                 </div>
               </div>
               <div>
@@ -22,7 +23,8 @@ const TableCard = ({data, index, handleDelete}) => {
           <td>
             <span className="badge badge-ghost badge-sm">{instructorName}</span>
           </td>
-          <td>{availableSeats}</td>
+          <td>{availibleSeats
+}</td>
           <th>
             <button className="btn btn-ghost btn-xs">{price}</button>
           </th>

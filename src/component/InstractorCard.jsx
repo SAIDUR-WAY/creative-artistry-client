@@ -1,6 +1,7 @@
 
 
 const InstractorCard = ({data}) => {
+  
      return (
           <div>
                          <div className=" p-10 rounded-xl bg-gray-400 antialiased text-gray-900">
@@ -19,7 +20,7 @@ const InstractorCard = ({data}) => {
   </div>   */}
     </div>
     <span className="text-teal-600 text-md font-semibold underline">Name</span>
-    <h4 className="mt-1 text-2xl font-semibold uppercase leading-tight truncate"> {data.name}</h4>
+    <h4 className="mt-1 text-2xl font-semibold uppercase leading-tight truncate"> {data.className}</h4>
   <div className="mt-2">
     <span className="text-teal-600 text-md font-semibold underline">Email</span>
     <h4 className="text-sm font-semibold text-gray-600">{data.email}</h4>

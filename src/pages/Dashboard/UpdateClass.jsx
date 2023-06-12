@@ -1,14 +1,19 @@
-import Swal from "sweetalert2"
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+// import Swal from "sweetalert2"
+
+import { useLoaderData } from "react-router-dom";
+
 import { useContext } from "react";
-import { authContext } from "../../../Provider/AuthProvider";
-// import { useLoaderData } from "react-router-dom";
+
+
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { authContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
  const img_hosting_token= import.meta.env.VITE_Image_Upload_token;
 
- const AddaClass = () => {
-  //  console.log(id)
-  // const classe = useLoaderData();
-  // console.log(classe)
+ const UpdateClass = () => {
+ 
+  const classe = useLoaderData();
+  console.log(classe)
   // console.log(classe.price) 
   const [axiosSecure] = useAxiosSecure();
   const {user} = useContext(authContext);
@@ -29,15 +34,12 @@ import { authContext } from "../../../Provider/AuthProvider";
     const availibleSeats = form.availibleSeats.value
     const price = form.price.value
 
-    const totalValue = {
+    const updatedValue = {
       className,
       instructorName,
       instructorEmail,
       availibleSeats: +availibleSeats,
-      price: +price,
-      enrolledStudent: 0,
-      status: 'pending',
-      feedback: '',
+      price: +price
     }
     
     const imageFile = form.imageUrl.files[0];
@@ -53,13 +55,12 @@ import { authContext } from "../../../Provider/AuthProvider";
     .then(imgResponse =>{
       if(imgResponse.success){
         const imgURL = imgResponse.data.display_url;
-        const addClass = totalValue;
-        addClass.imageUrl = imgURL;
-        console.log(addClass)
-        axiosSecure.post('/classes', addClass)
+        updatedValue.imgUrl = imgURL;
+        console.log(updatedValue)
+        axiosSecure.patch(`/classes/${classe._id}`, updatedValue)
         .then(data => {
-          // console.log('Add a class in instractor', data.data)
-          if(data.data.insertedId){
+          console.log('update a class in instractor', data.data)
+          if(data.data.modifiedCount > 0){
             Swal.fire({
                position: 'center',
                icon: 'success',
@@ -75,29 +76,7 @@ import { authContext } from "../../../Provider/AuthProvider";
 
 
   
-    // console.log(totalValue)
-
-  //   fetch('http://localhost:5000/classes', {
-  //    method: 'POST',
-  //    headers: {
-  //         'content-type': 'application/json'
-  //    },
-  //    body: JSON.stringify(totalValue)
-  //   })
-  //   .then(res => res.json())
-  //   .then(data => {
-  //    console.log(data);
-  //    if(data.insertedId){
-  //         // form.reset()
-  //         Swal.fire({
-  //              position: 'center',
-  //              icon: 'success',
-  //              title: 'Class Has been added',
-  //              showConfirmButton: false,
-  //              timer: 1500
-  //            })
-  //    }
-  //   })
+   
   }
 
   return (
@@ -114,6 +93,7 @@ import { authContext } from "../../../Provider/AuthProvider";
                   <input
                     type="text"
                     name="className"
+                    defaultValue={classe?.className}
                     required
                     placeholder="class name"
                     className="input input-bordered"
@@ -167,7 +147,7 @@ import { authContext } from "../../../Provider/AuthProvider";
                 <input
                   type="text"
                   name="availibleSeats"
-    
+                  defaultValue={classe?.availibleSeats}
                   placeholder="Available Seats"
                   required
                   className="input input-bordered"
@@ -181,6 +161,7 @@ import { authContext } from "../../../Provider/AuthProvider";
                   type="text"
                   name="price"
                   placeholder="Price"
+                  defaultValue={classe?.price}
                   required
                   className="input input-bordered"
                 />
@@ -197,4 +178,4 @@ import { authContext } from "../../../Provider/AuthProvider";
   )
 }
 
-export default AddaClass
+export default UpdateClass

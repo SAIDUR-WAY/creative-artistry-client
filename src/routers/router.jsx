@@ -15,6 +15,10 @@ import Dashboard from "../layout/Dashboard";
 import MyClasses from "../pages/Dashboard/MyClasses";
 import ManageUsers from "../pages/Dashboard/ManageUsers";
 import AddaClass from "../pages/Dashboard/AddAClass/AddaClass";
+import InstClasses from "../pages/Dashboard/instructorClassis/instClasses";
+import InstructorHome from "../pages/Dashboard/InstractorHome/InstractorHome";
+import UpdateClass from "../pages/Dashboard/UpdateClass";
+
 
    const router = createBrowserRouter([
      {
@@ -45,7 +49,7 @@ import AddaClass from "../pages/Dashboard/AddAClass/AddaClass";
        ]
      },
      {
-      path: 'dashboard',
+      path: '/dashboard',
       element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children:[
         {
@@ -59,7 +63,22 @@ import AddaClass from "../pages/Dashboard/AddAClass/AddaClass";
         {
           path: 'addaclass',
           element: <AddaClass></AddaClass>
+        },
+        {
+          path: 'instclasses',
+          element: <InstClasses></InstClasses>
+        },
+        {
+          path: 'update/:id',
+          element: <UpdateClass></UpdateClass>,
+          loader: ({params})=> fetch(`http://localhost:5000/classes/update/${params.id}`)
+        },
+        {
+          path: 'instructorHome',
+          element: <InstructorHome></InstructorHome>
         }
+        
+
       ]
      }
    ]);

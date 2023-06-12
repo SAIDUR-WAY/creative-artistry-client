@@ -7,7 +7,7 @@ const axiosSecure = axios.create({
   baseURL: 'http://localhost:5000', 
 });
 
-//TODO: Will finally try it
+// TODO: Will finally try it
 const useAxiosSecure = () => {
   const { logOut } = useContext(authContext); 
   const navigate = useNavigate(); 
@@ -34,7 +34,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate, axiosSecure ]);
+  }, [logOut, navigate ]);
 
   return [axiosSecure];
 };
