@@ -1,15 +1,13 @@
 import { useContext, useState } from 'react';
-import { FaCartArrowDown } from 'react-icons/fa';
 import { Link } from "react-router-dom"
 import { authContext } from '../Provider/AuthProvider';
-import useMyClasses from '../hooks/useMyClasses';
+
 
 
 
 const Navber = () => {
   const [name, setName]= useState(false)   
   const {user, logOut} = useContext(authContext);
-  const [myclasses] = useMyClasses()
   // console.log(user)
 
   const handleLogOut = () => {

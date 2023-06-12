@@ -3,15 +3,17 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../Provider/AuthProvider';
 
+const axiosSecure = axios.create({
+  baseURL: 'http://localhost:5000', 
+});
 
 //TODO: Will finally try it
 const useAxiosSecure = () => {
   const { logOut } = useContext(authContext); 
   const navigate = useNavigate(); 
 
-  const axiosSecure = axios.create({
-     baseURL: 'http://localhost:5000', 
-   });
+
+
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -19,7 +21,7 @@ const useAxiosSecure = () => {
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
-      return config;
+      return config ;
     });
 
     axiosSecure.interceptors.response.use(

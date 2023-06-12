@@ -1,6 +1,18 @@
-const AddaClass = () => {
+import Swal from "sweetalert2"
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+ const img_hosting_token= import.meta.env.VITE_Image_Upload_token;
+
+ const AddaClass = () => {
+  const [axiosSecure] = useAxiosSecure();
+  // console.log(img_hosting_token)
+  const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
   const handleAddClass = (event) => {
     event.preventDefault()
+
+    //image hosting in imgbb
+    // const formData = new FormData();
+    // formData.append('image', data.image[0])
+
 
     const form = event.target
     const className = form.className.value
@@ -8,7 +20,6 @@ const AddaClass = () => {
     const instructorEmail = form.instructorEmail.value
     const availibleSeats = form.availibleSeats.value
     const price = form.price.value
-    const imageUrl = form.imageUrl.value
 
     const totalValue = {
       className,
@@ -16,25 +27,69 @@ const AddaClass = () => {
       instructorEmail,
       availibleSeats: +availibleSeats,
       price: +price,
-      imageUrl,
       enrolledStudent: 0,
       status: 'pending',
       feedback: '',
     }
-    console.log(totalValue)
+    
+    const imageFile = form.imageUrl.files[0];
 
-    fetch('http://localhost:5000/classes', {
-     method: 'POST',
-     headers: {
-          'content-type': 'application/json'
-     },
-     body: JSON.stringify(totalValue)
+        //image hosting in imgbb
+    const formData = new FormData();
+    formData.append('image', imageFile)
+    fetch(img_hosting_url, {
+      method: 'POST',
+      body: formData
     })
     .then(res => res.json())
-    .then(data => {
-     console.log(data);
-     // if(data.insertedId)
+    .then(imgResponse =>{
+      if(imgResponse.success){
+        const imgURL = imgResponse.data.display_url;
+        const addClass = totalValue;
+        addClass.imageUrl = imgURL;
+        console.log(addClass)
+        axiosSecure.post('/classes', addClass)
+        .then(data => {
+          // console.log('Add a class in instractor', data.data)
+          if(data.data.insertedId){
+            Swal.fire({
+               position: 'center',
+               icon: 'success',
+               title: 'Class Has been added',
+               showConfirmButton: false,
+               timer: 1500
+             })
+          }
+        })
+
+      }
     })
+
+
+  
+    // console.log(totalValue)
+
+  //   fetch('http://localhost:5000/classes', {
+  //    method: 'POST',
+  //    headers: {
+  //         'content-type': 'application/json'
+  //    },
+  //    body: JSON.stringify(totalValue)
+  //   })
+  //   .then(res => res.json())
+  //   .then(data => {
+  //    console.log(data);
+  //    if(data.insertedId){
+  //         // form.reset()
+  //         Swal.fire({
+  //              position: 'center',
+  //              icon: 'success',
+  //              title: 'Class Has been added',
+  //              showConfirmButton: false,
+  //              timer: 1500
+  //            })
+  //    }
+  //   })
   }
 
   return (
@@ -70,7 +125,7 @@ const AddaClass = () => {
                 </div>
               </div>
 
-              {/* <div className="form-control w-full max-w-xs">
+              <div className="form-control w-full max-w-xs">
   <label className="label">
      Class Image
   </label>
@@ -78,9 +133,9 @@ const AddaClass = () => {
   <label className="label">
   </label>
 
-</div> */}
+</div>
 
-              <div className="form-control w-1/2">
+              {/* <div className="form-control w-1/2">
                 <label className="label">
                   <span className="label-text">ImageUrl</span>
                 </label>
@@ -91,7 +146,7 @@ const AddaClass = () => {
                   placeholder="ImageUrl"
                   className="input input-bordered"
                 />
-              </div>
+              </div> */}
             </div>
             <div className="form-control">
               <label className="label">

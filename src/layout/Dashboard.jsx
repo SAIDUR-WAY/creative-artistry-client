@@ -2,7 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { BiWalletAlt } from 'react-icons/bi'
 import { FaChalkboardTeacher, FaFolderPlus, FaHome, FaLeanpub, FaListOl, FaMizuni, FaRegChartBar, FaUsers } from 'react-icons/fa'
 import useAdmin from '../hooks/useAdmin'
-import useInstructor from '../hooks/useInstructor'
+
 
 const Dashboard = () => {
   //TODO: user deshboard menu view in work
