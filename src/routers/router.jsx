@@ -71,7 +71,7 @@ import UpdateClass from "../pages/Dashboard/UpdateClass";
         {
           path: 'update/:id',
           element: <UpdateClass></UpdateClass>,
-          loader: ({params})=> fetch(`http://localhost:5000/classes/update/${params.id}`)
+          loader: ({params})=> fetch(`https://creative-artistry-server-saidur-way.vercel.app/classes/update/${params.id}`)
         },
         {
           path: 'instructorHome',
