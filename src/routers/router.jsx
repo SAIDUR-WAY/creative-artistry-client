@@ -18,6 +18,7 @@ import AddaClass from "../pages/Dashboard/AddAClass/AddaClass";
 import InstClasses from "../pages/Dashboard/instructorClassis/instClasses";
 import InstructorHome from "../pages/Dashboard/InstractorHome/InstractorHome";
 import UpdateClass from "../pages/Dashboard/UpdateClass";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 
    const router = createBrowserRouter([
@@ -76,6 +77,11 @@ import UpdateClass from "../pages/Dashboard/UpdateClass";
         {
           path: 'instructorHome',
           element: <InstructorHome></InstructorHome>
+        },
+        {
+          path: 'payment/:id',
+          element: <Payment></Payment>,
+          loader: ({params}) => fetch(`https://creative-artistry-server-saidur-way.vercel.app/myclasses/payment/${params.id}`)
         }
         
 

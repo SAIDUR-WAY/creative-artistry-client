@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const TableCard = ({data, index, handleDelete}) => {
      const {name, imageUrl, instructorName, availibleSeats , price, _id} = data;
-     console.log(data)
+    //  console.log(data)
      return (
           <tr>
           <th>
@@ -32,7 +33,7 @@ const TableCard = ({data, index, handleDelete}) => {
             <button onClick={()=>handleDelete(_id)} className="btn bg-red-500  btn-xs">Delete</button>
           </th>
           <th>
-            <button className="btn btn-ghost bg-pink-400 btn-xs">Pay</button>
+            <button  className="btn btn-ghost bg-pink-400 btn-xs"><Link to={`/dashboard/payment/${_id}`}>Pay</Link></button>
           </th>
         </tr>
      );
