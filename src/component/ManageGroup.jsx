@@ -16,7 +16,7 @@ function Dropdown({ data, refetch }) {
 
     try {
       const response = await axiosSecure.patch(
-        `http://localhost:5000/classes/manage/${id}`,
+        `https://creative-artistry-server-saidur-way.vercel.app/classes/manage/${id}`,
         {
           status
         }

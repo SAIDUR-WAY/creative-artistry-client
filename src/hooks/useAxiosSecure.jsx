@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { authContext } from '../Provider/AuthProvider';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://creative-artistry-server-saidur-way.vercel.app', 
 });
 
 // TODO: Will finally try it

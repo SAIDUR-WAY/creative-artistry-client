@@ -7,7 +7,7 @@ const useClasses = () => {
      const [loading, setLoading] = useState(true)
      useEffect(()=>{
 
-                    fetch('http://localhost:5000/classes/approvedclasses')
+                    fetch('https://creative-artistry-server-saidur-way.vercel.app/classes/approvedclasses')
                .then(res => res.json())
                .then(data => {
                     setClasse(data)

@@ -7,7 +7,7 @@ const ManageClasses = () => {
 //   const [allClasses, setAllClasses] = useState([]);
 
 const {data: allClasses = [], refetch} = useQuery(['allClasses'], async()=>{
-     const res = await fetch('http://localhost:5000/classes/manage')
+     const res = await fetch('https://creative-artistry-server-saidur-way.vercel.app/classes/manage')
      return res.json();
 })
   console.log(allClasses)
@@ -16,7 +16,7 @@ const {data: allClasses = [], refetch} = useQuery(['allClasses'], async()=>{
 //     const fetchData = async () => {
 //       try {
 //         const response = await axiosSecure.get(
-//           "http://localhost:5000/classes/manage"
+//           "https://creative-artistry-server-saidur-way.vercel.app/classes/manage"
 //         );
 //         setAllClasses(response.data);
 //       } catch (error) {
