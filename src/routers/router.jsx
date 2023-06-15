@@ -75,7 +75,7 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
         {
           path: 'update/:id',
           element: <UpdateClass></UpdateClass>,
-          loader: ({params})=> fetch(`http://localhost:5000/classes/update/${params.id}`)
+          loader: ({params})=> fetch(`https://creative-artistry-server-saidur-way.vercel.app/classes/update/${params.id}`)
         },
         {
           path: 'instructorHome',
@@ -84,7 +84,7 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
         {
           path: 'payment/:id',
           element: <Payment></Payment>,
-          loader: ({params}) => fetch(`http://localhost:5000/myclasses/payment/${params.id}`)
+          loader: ({params}) => fetch(`https://creative-artistry-server-saidur-way.vercel.app/myclasses/payment/${params.id}`)
         },
         {
           path: 'paymenthistory',

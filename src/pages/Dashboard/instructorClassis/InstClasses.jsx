@@ -9,7 +9,7 @@ const InstClasses = () => {
      const [classe, setClasse] = useState([]);
 
      useEffect(()=>{
-        fetch(`http://localhost:5000/classes/?email=${user?.email}`)
+        fetch(`https://creative-artistry-server-saidur-way.vercel.app/classes/?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
           setClasse(data);

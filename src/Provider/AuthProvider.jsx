@@ -44,7 +44,7 @@ const AuthProvider = ({children}) => {
 
                //get and storeg local storeg
                if(currentUser){
-                    axios.post('http://localhost:5000/jwt', {
+                    axios.post('https://creative-artistry-server-saidur-way.vercel.app/jwt', {
                          email: currentUser.email
                     })
                     .then(data =>{

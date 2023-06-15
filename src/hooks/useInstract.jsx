@@ -5,7 +5,7 @@ const useInstract = () => {
      
      const [loading, setLoading] = useState(true)
      useEffect(()=>{
-          fetch('http://localhost:5000/instructors')
+          fetch('https://creative-artistry-server-saidur-way.vercel.app/instructors')
           .then(res => res.json())
           .then(data => {
                setInstraData(data)
