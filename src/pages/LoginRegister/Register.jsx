@@ -117,13 +117,13 @@ const Register = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
                   })}
                   placeholder="password"
-                  className="input input-bordered h-0 "
+                  className="input input-bordered h-0"
                 />
                 {
                   show ? 
-                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-12 top-14 '/>
                   :
-                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-12 top-14'/>
                 }
                 
                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}

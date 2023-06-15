@@ -38,7 +38,7 @@ const Navber = () => {
       </li>
       {
          !user &&
-         <button className='btn  bg-transparent btn-sm mx-2'><Link to='/login' className='text-white text-decoration-none'>SignIn</Link></button>
+         <button className='btn  bg-transparent btn-sm m-0'><Link to='/login' className='text-white text-decoration-none'>SignIn</Link></button>
       }
      
     </>

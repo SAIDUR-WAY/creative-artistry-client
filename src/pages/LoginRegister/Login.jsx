@@ -46,13 +46,14 @@ const Login = () => {
             <img src={registerImg} alt="" />
           </div>
           <div className="card flex-shrink-0 md:w-1/2   shadow-2xl bg-base-100">
-            <h1 className="text-5xl pb-10 font-semibold  text-center ">
+            <h1 className="text-5xl pb-4 font-semibold  text-center pt-4 ">
               Please Login
             </h1>
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="card-body w-full"
+              className="card-body w-full py-0 m-0"
+              
             >
                               {error  && (
                   <p className="text-red-600">{error}</p>
@@ -74,7 +75,7 @@ const Login = () => {
                 )}
               </div>
 
-              <div className="form-control relative">
+              <div className="form-control  relative ">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -87,15 +88,17 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
+                <div className='absolute top-16 right-2'>
                 {
                   show ? 
-                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  <FaRegEye onClick={()=>setShow(!show)} className='absolute text-2xl right-0 top-0 '/>
                   :
-                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-5 top-12 '/>
+                  <FaRegEyeSlash onClick={()=>setShow(!show)} className='absolute text-2xl right-0 top-0'/>
                 }
                 {errors.password?.type === 'required' && (
                   <p className="text-red-600">Password is required</p>
                 )}
+                </div>
 
               </div>
               <div className="form-control mt-6">
