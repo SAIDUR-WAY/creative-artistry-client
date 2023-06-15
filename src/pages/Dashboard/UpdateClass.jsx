@@ -55,7 +55,7 @@ import Swal from "sweetalert2";
     .then(imgResponse =>{
       if(imgResponse.success){
         const imgURL = imgResponse.data.display_url;
-        updatedValue.imgUrl = imgURL;
+        updatedValue.imageUrl = imgURL;
         console.log(updatedValue)
         axiosSecure.patch(`/classes/${classe._id}`, updatedValue)
         .then(data => {
@@ -80,6 +80,8 @@ import Swal from "sweetalert2";
   }
 
   return (
+    <>
+    <h2 className="text-3xl font-bold uppercase ">Update My class</h2>
     <div className="w-full">
       <div className=" w-full  bg-base-200">
         <div className="card w-full  shadow-2xl bg-base-100">
@@ -118,7 +120,7 @@ import Swal from "sweetalert2";
   <label className="label">
      Class Image
   </label>
-  <input type="file" name='imageUrl'  className="file-input file-input-bordered w-full max-w-xs" />
+  <input type="file" name='imageUrl' required  className="file-input file-input-bordered w-full max-w-xs" />
   <label className="label">
   </label>
 
@@ -175,6 +177,7 @@ import Swal from "sweetalert2";
         </div>
       </div>
     </div>
+    </>
   )
 }
 

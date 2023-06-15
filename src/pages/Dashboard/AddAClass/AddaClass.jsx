@@ -77,7 +77,7 @@ import { authContext } from "../../../Provider/AuthProvider";
   
     // console.log(totalValue)
 
-  //   fetch('https://creative-artistry-server-saidur-way.vercel.app/classes', {
+  //   fetch('http://localhost:5000/classes', {
   //    method: 'POST',
   //    headers: {
   //         'content-type': 'application/json'
@@ -101,6 +101,8 @@ import { authContext } from "../../../Provider/AuthProvider";
   }
 
   return (
+    <>
+    <h2 className="text-3xl font-bold ">New Class added</h2>
     <div className="w-full">
       <div className=" w-full  bg-base-200">
         <div className="card w-full  shadow-2xl bg-base-100">
@@ -194,6 +196,7 @@ import { authContext } from "../../../Provider/AuthProvider";
         </div>
       </div>
     </div>
+    </>
   )
 }
 

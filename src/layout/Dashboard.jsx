@@ -9,6 +9,7 @@ const Dashboard = () => {
   // const isAdmin = true;
   
   const [isAdmin] = useAdmin();
+  console.log(isAdmin)
 
   return (
     <>
@@ -30,7 +31,7 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             {
-              isAdmin == 'admin' ? <>
+              isAdmin === 'admin' ? <>
                             <li>
               <NavLink to="/dashboard/adminhome">
                 <FaHome /> Admin Home
@@ -47,7 +48,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
 
-              </> : ( isAdmin == 'instructor' ? <>
+              </> : ( isAdmin === 'instructor' ? <>
               <li>
                 <NavLink to="/dashboard/instructorHome">
                 <FaHome /> Instructor Home
@@ -63,30 +64,30 @@ const Dashboard = () => {
                 <FaListOl /> My Classes
               </NavLink>
             </li>
-              </> :  <>
+              </> :  isAdmin === "student" ? <>
 
-              <li>
-              <NavLink to="/dashboard/studenthome">
-                <FaHome /> User Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/enrolled">
-                <BiWalletAlt /> Enrolled
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/myclasses">
-                <FaListOl /> My Classes
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/paymenthistory">
-                <FaRegChartBar /> Payment History
-              </NavLink>
-            </li>
-              
-              </>)
+<li>
+<NavLink to="/dashboard/studenthome">
+  <FaHome /> User Home
+</NavLink>
+</li>
+<li>
+<NavLink to="/dashboard/enrolled">
+  <BiWalletAlt /> Enrolled
+</NavLink>
+</li>
+<li>
+<NavLink to="/dashboard/myclasses">
+  <FaListOl /> My Classes
+</NavLink>
+</li>
+<li>
+<NavLink to="/dashboard/paymenthistory">
+  <FaRegChartBar /> Payment History
+</NavLink>
+</li>
+
+</> : '')
             }
             
 

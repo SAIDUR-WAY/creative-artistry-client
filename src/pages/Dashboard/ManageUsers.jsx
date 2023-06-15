@@ -4,13 +4,13 @@ import Swal from "sweetalert2";
 
 const ManageUsers = () => {
      const {data: users = [], refetch} = useQuery(['users'], async()=>{
-          const res = await fetch('https://creative-artistry-server-saidur-way.vercel.app/users')
+          const res = await fetch('http://localhost:5000/users')
           return res.json();
      })
      
      const handleMakeAdmin = (user, role)=>{
      //    console.log( user._id, role)
-        fetch(`https://creative-artistry-server-saidur-way.vercel.app/users/manage?email=${user?.email}&role=${role}`,{
+        fetch(`http://localhost:5000/users/manage?email=${user?.email}&role=${role}`,{
           method: 'PATCH',
 
 
@@ -32,7 +32,7 @@ const ManageUsers = () => {
      }
 
      const handleDelete = (id)=>{
-          fetch(`https://creative-artistry-server-saidur-way.vercel.app/users/${id}`, {
+          fetch(`http://localhost:5000/users/${id}`, {
                method: 'DELETE'
           })
           .then(res => res.json())

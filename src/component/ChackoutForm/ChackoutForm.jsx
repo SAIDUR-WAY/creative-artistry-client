@@ -24,7 +24,7 @@ const ChackoutForm = ({ data }) => {
       axiosSecure.post('create-payment-intent', {paymentPrice} )
       .then(res =>{
         setClientSecret(res.data.clientSecret)
-        console.log(res.data.clientSecret)
+        // console.log(res.data.clientSecret)
       })
      }, [])
 

@@ -36,8 +36,8 @@ const Banner = () => {
             className="mySwiper"
           >
             <SwiperSlide>
-            <div className="hero">
-              <img className='h-36' src={bannerImg1} alt="" />
+            <div className="hero " style={{ height: '600px' }}>
+              <img className='min-h-screen' src={bannerImg1} alt="" />
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-left  text-neutral-content">
     <div className="max-w-md">
@@ -50,8 +50,8 @@ const Banner = () => {
 </div>
             </SwiperSlide>
             <SwiperSlide>
-             <div className="hero ">
-              <img  src={bannerImg2} alt="" />
+             <div className="hero " style={{ height: '600px' }} >
+              <img className='min-h-screen'  src={bannerImg2} alt="" />
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-right left-5 text-neutral-content">
     <div className="max-w-md">
@@ -63,8 +63,8 @@ const Banner = () => {
 </div>
             </SwiperSlide>
             <SwiperSlide>
-             <div className="hero ">
-              <img src={bannerImg3} alt="" />
+             <div className="hero " style={{ height: '600px' }}>
+              <img className='min-h-screen' src={bannerImg3} alt="" />
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">

@@ -22,6 +22,7 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import Enrolled from "../pages/Dashboard/Enrolled/Enrolled";
 import History from "../pages/Dashboard/History/History";
 import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
+import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 
 
    const router = createBrowserRouter([
@@ -75,7 +76,7 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
         {
           path: 'update/:id',
           element: <UpdateClass></UpdateClass>,
-          loader: ({params})=> fetch(`https://creative-artistry-server-saidur-way.vercel.app/classes/update/${params.id}`)
+          loader: ({params})=> fetch(`http://localhost:5000/classes/update/${params.id}`)
         },
         {
           path: 'instructorHome',
@@ -84,7 +85,7 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
         {
           path: 'payment/:id',
           element: <Payment></Payment>,
-          loader: ({params}) => fetch(`https://creative-artistry-server-saidur-way.vercel.app/myclasses/payment/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/myclasses/payment/${params.id}`)
         },
         {
           path: 'paymenthistory',
@@ -97,6 +98,10 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
         {
           path: 'studenthome',
           element: <StudentHome></StudentHome>
+        },
+        {
+          path: 'manageclasses',
+          element: <ManageClasses></ManageClasses>
         }
         
 

@@ -17,7 +17,7 @@ const ClassCard = ({clas}) => {
       if(user && user.email){
         const addedClass = {imageUrl, className, instructorName, availibleSeats, price, description, classId: _id, studentEmail: user.email, enrolledStudent: enrolledStudent
         }
-        fetch('https://creative-artistry-server-saidur-way.vercel.app/myclasses', {
+        fetch('http://localhost:5000/myclasses', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
-import { authContext } from '../../../Provider/AuthProvider';
 
 const PopularIns = () => {
   const [userWithClass, setUserWithClass] = useState([]);
   const [visibleItems, setVisibleItems] = useState(6);
   console.log(userWithClass);
-  const { user } = useContext(authContext);
   const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
