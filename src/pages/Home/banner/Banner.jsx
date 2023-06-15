@@ -42,9 +42,10 @@ const Banner = () => {
   <div className="hero-content text-left  text-neutral-content">
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Join Our Art and Craft Summer School!</h1>
-      <p className="mb-5">Join us for a fun and immersive experience that will inspire you to create beautiful works of art.</p>
+      <p className="mb-5">As artists, we are often told to take every opportunity that comes our way.</p>
       <button className="btn glass">Get Started</button>
     </div>
+    
   </div>
 </div>
             </SwiperSlide>
@@ -82,6 +83,8 @@ const Banner = () => {
           <span ref={progressContent}></span>
         </div>
           </Swiper>
+
+
         </>
      );
 };

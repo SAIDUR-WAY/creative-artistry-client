@@ -13,8 +13,8 @@ const SocialLogin = () => {
           .then(result => {
                const loggedUser = result.user;
                console.log(loggedUser)
-               const saveUser = {name: loggedUser.displayName, email: loggedUser.email, role: 'student', userImg: loggedUser.photoUrl }
-               fetch('https://creative-artistry-server-saidur-way.vercel.app/users', {
+               const saveUser = {name: loggedUser.displayName, email: loggedUser.email, role: 'student', userPhoto: loggedUser.photoURL }
+               fetch('http://localhost:5000/users', {
           method: "POST",
           headers: {
             'content-type': 'application/json'

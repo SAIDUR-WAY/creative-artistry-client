@@ -31,8 +31,8 @@ const Register = () => {
 
       updateUserProfile(data.name, data.url)
       .then(()=>{
-        const saveUser = {name: data.name, email: data.email, role: 'student'}
-        fetch('https://creative-artistry-server-saidur-way.vercel.app/users', {
+        const saveUser = {name: data.name, email: data.email, role: 'student', userPhoto: data.url}
+        fetch('http://localhost:5000/users', {
           method: "POST",
           headers: {
             'content-type': 'application/json'
@@ -68,42 +68,42 @@ const Register = () => {
     <div className="pt-20"
     
     >
-      <div className="hero w-full min-h-screen bg-base-200">
+      <div className="hero w-full min-h-600 bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left w-1/4 md:w-full relative ">
             <h1 className="text-5xl font-semibold  text-center md:absolute left-36 ">Please Register</h1>
             <img src={registerImg} alt="" />
           </div>
           <div className="card flex-shrink-0 md:w-1/2  shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body w-full">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body my-0 w-full py-0">
             {error  && (
                   <p className="text-red-600">{error}</p>
                 )}
-              <div className="form-control">
+              <div className="form-control h-16 ">
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"
                   {...register('name', { required: true })}
-                  placeholder="password"
-                  className="input input-bordered"
+                  placeholder="Name"
+                  className="input input-bordered h-0"
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control  h-16">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   {...register('email', { required: true })}
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered h-0"
                 />
                 {errors.email?.type === 'required' && <p role="alert" className="text-red-500">Email is required</p>}
               </div>
 
-              <div className="form-control relative">
+              <div className="form-control relative h-16">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
@@ -117,7 +117,7 @@ const Register = () => {
                     pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/,
                   })}
                   placeholder="password"
-                  className="input input-bordered "
+                  className="input input-bordered h-0 "
                 />
                 {
                   show ? 
@@ -144,30 +144,30 @@ const Register = () => {
                         value === password || 'Passwords do not match',
                     })}
                   placeholder="Confirm"
-                  className="input input-bordered"
+                  className="input input-bordered h-0"
                 />
                 {errors.confirm && (
                   <span className="text-red-500">{errors.confirm.message}</span>
                 )}
-                <label className="label">
+                <label className="label pt-0 m-0">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
               <div className="form-control">
-                <label className="label">
+                <label className="label m-0">
                   <span className="label-text">PhotoUrl</span>
                 </label>
                 <input
                   type="url"
                   {...register('url', { required: true })}
                   placeholder="PhotoUrl"
-                  className="input input-bordered"
+                  className="input input-bordered h-0"
                 />
                 {errors.url?.type === 'required' && <p role="alert" className="text-red-500">Email is required</p>}
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control">
                 <button className="btn btn-primary">SignUp</button>
               </div>
             </form>

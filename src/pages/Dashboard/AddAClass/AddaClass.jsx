@@ -77,7 +77,7 @@ import { authContext } from "../../../Provider/AuthProvider";
   
     // console.log(totalValue)
 
-  //   fetch('https://creative-artistry-server-saidur-way.vercel.app/classes', {
+  //   fetch('http://localhost:5000/classes', {
   //    method: 'POST',
   //    headers: {
   //         'content-type': 'application/json'

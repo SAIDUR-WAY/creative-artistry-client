@@ -13,7 +13,7 @@ const useMyClasses = () => {
           queryKey: ['myclasses', user?.email],
           enabled: !loading,
           queryFn : async()=> {
-               const res = await fetch(`https://creative-artistry-server-saidur-way.vercel.app/myclasses?email=${user?.email}`, {headers: {
+               const res = await fetch(`http://localhost:5000/myclasses?email=${user?.email}`, {headers: {
                     authorization: `bearer ${token}`
                }})
                return res.json()

@@ -5,7 +5,7 @@ import ClassCard from '../../component/ClassCard';
 import useClasses from '../../hooks/useClasses'
 const Classes = () => {
   const [classe] = useClasses();
-  console.log(classe)
+  // console.log(classe)
   
  
   return (

@@ -18,7 +18,7 @@ const MyClasses = () => {
                confirmButtonText: 'Yes, delete it!'
              }).then((result) => {
                if (result.isConfirmed) {
-                    fetch(`https://creative-artistry-server-saidur-way.vercel.app/myclasses/${id}`, {
+                    fetch(`http://localhost:5000/myclasses/${id}`, {
                          method: 'DELETE',
                     })
                     .then(res => res.json())

@@ -66,13 +66,13 @@ const Dashboard = () => {
               </> :  <>
 
               <li>
-              <NavLink to="/dashboard/userhome">
+              <NavLink to="/dashboard/studenthome">
                 <FaHome /> User Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/paymenthistory">
-                <BiWalletAlt /> Payment History
+              <NavLink to="/dashboard/enrolled">
+                <BiWalletAlt /> Enrolled
               </NavLink>
             </li>
             <li>
@@ -81,8 +81,8 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/enrolled">
-                <FaRegChartBar /> My Enrolled
+              <NavLink to="/dashboard/paymenthistory">
+                <FaRegChartBar /> Payment History
               </NavLink>
             </li>
               
